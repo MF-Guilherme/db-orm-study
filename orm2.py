@@ -19,23 +19,7 @@ def retorna_session():
 
 session = retorna_session()
 
-# x = session.query(Pessoa).all() # pegando tudo que está no banco de dados (retorna uma lista de objetos)
-# for i in x:
-#     print(f'ID: {i.id}')
-#     print(f'NOME: {i.nome}')
-#     print(f'SENHA: {i.senha}')
-#     print('-' * 20)
 
-# x = session.query(Pessoa).filter(Pessoa.nome == "Guilherme").all() # filtrando por uma única condição
-
-# x = session.query(Pessoa).filter(Pessoa.nome == 'Guilherme').filter(Pessoa.usuario == 'guimont').all() # filtrando com mais de uma condição (operador and)
-# x = session.query(Pessoa).filter_by(nome='Guilherme', usuario='guimont') # forma simplificada do 'and', utilizando o nome da coluna da tabela
-
-x = session.query(Pessoa).filter(or_(Pessoa.nome == 'Guilherme', Pessoa.usuario == 'liz')) # utilizando o operador 'or' (importar o or_)
-
-for i in x:
-    print(f'ID: {i.id}')
-    print(f'NOME: {i.nome}')
-    print(f'USUARIO: {i.usuario}')
-    print(f'SENHA: {i.senha}')
-    print('-' * 20)
+x = session.query(Pessoa).filter(Pessoa.id == '7') # Filtrando uma pessoa pelo Id
+x[0].nome = 'Andressa' # e atualizando algum campo da tabela
+session.commit()
