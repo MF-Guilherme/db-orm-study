@@ -19,8 +19,9 @@ def retorna_session():
 
 session = retorna_session()
 
-x = Pessoa(nome='Liz', usuario='liz', senha='1657')
-y = Pessoa(nome='Isaac', usuario='isaac', senha='6474')
+x = Pessoa(nome='Joao', usuario='joao', senha='1234')
+y = Pessoa(nome='', usuario='joao', senha='1234')
 
 session.add_all([x, y])
+session.rollback()
 session.commit()
