@@ -20,6 +20,8 @@ def retorna_session():
 session = retorna_session()
 
 
-x = session.query(Pessoa).filter(Pessoa.id == '7') # Filtrando uma pessoa pelo Id
-x[0].nome = 'Andressa' # e atualizando algum campo da tabela
+# x = session.query(Pessoa).filter(Pessoa.id == '7').delete() # Deletando o objeto diretamente
+x = session.query(Pessoa).filter(Pessoa.id == '4').one() # outra opção, filtrando um objeto do banco
+session.delete(x) # e deletando o objeto através da session
+
 session.commit()
